@@ -1,5 +1,6 @@
 import { logout } from "@/app/actions";
 import RefreshButton from "./RefreshButton";
+import Link from "next/link";
 import Image from "next/image";
 
 interface ThingSpeakResponse {
@@ -82,6 +83,12 @@ export default async function DashboardPage() {
           </div>
           
           <div className="flex items-center gap-4">
+            <Link 
+              href="/sobre"
+              className="text-sm px-4 py-2 rounded-md bg-transparent hover:bg-gray-800 transition-colors text-gray-300 hover:text-white font-medium"
+            >
+              Sobre
+            </Link>
             <RefreshButton />
             <form action={logout}>
               <button
