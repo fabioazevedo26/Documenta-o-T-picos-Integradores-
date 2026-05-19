@@ -1,0 +1,58 @@
+DOCUMENTAÇÃO E EXPLICAÇÃO DO CÓDIGO - PAINEL IOT (NEXT.JS + THINGSPEAK)
+======================================================================
+
+Este arquivo explica o funcionamento de cada parte principal do projeto. O projeto foi construído usando Next.js 15 (App Router), React, Tailwind CSS e TypeScript.
+
+1. ARQUITETURA E SEGURANÇA
+--------------------------
+Como o painel não possui um banco de dados tradicional (SQL/NoSQL), usamos "Variáveis de Ambiente" (.env.local) para armazenar informações sensíveis, como login, senha e chaves do ThingSpeak. Essas variáveis nunca são expostas para o navegador do cliente, mantendo o sistema seguro.
+
+2. FLUXO DE AUTENTICAÇÃO (LOGIN)
+--------------------------------
+- Arquivo: src/app/login/page.tsx
+- Arquivo: src/app/actions.ts
+- Arquivo: src/middleware.ts
+
+* Como funciona:
+Quando você acessa o site, o Next.js carrega o "middleware.ts". O papel do middleware é interceptar todas as requisições. Se você tentar acessar a rota "/dashboard" sem ter um "cookie" (um pequeno arquivo de sessão) válido no navegador, o middleware te redireciona imediatamente para a tela de "/login".
+
+Na tela de login (login/page.tsx), você digita seu usuário e senha. Quando clica em "Entrar", os dados são enviados de forma invisível para o arquivo "actions.ts" (via Server Actions). 
+
+O "actions.ts" pega o que você digitou e compara com as variáveis ADMIN_USER e ADMIN_PASS que estão no seu .env.local (ou na Vercel). Se bater, ele cria um "cookie" seguro no seu navegador chamado "session" e redireciona você para o Dashboard. Se não bater, ele devolve uma mensagem de erro na tela.
+
+3. O DASHBOARD E O THINGSPEAK
+-----------------------------
+- Arquivo: src/app/dashboard/page.tsx
+
+* Como funciona:
+Esta é a página principal. Ela é um "Server Component" (Componente de Servidor). Isso significa que ela carrega os dados ANTES de enviar o HTML pronto para o seu computador/celular.
+
+Ao ser acessada, a função "getThingSpeakData()" é executada no servidor. Ela pega o ID do seu canal (3387680) e a sua API Key no .env.local e faz um "fetch" (uma requisição HTTP) diretamente para a API oficial do ThingSpeak pedindo os últimos 20 resultados. 
+
+Detalhe importante: na requisição tem uma tag 'cache: "no-store"'. Isso diz ao Next.js para NUNCA salvar esses dados em cache, ou seja, toda vez que a página for aberta ou recarregada, ela vai buscar os dados MAIS RECENTES lá do ThingSpeak.
+
+Quando o ThingSpeak responde, o código mapeia os dados:
+- field1 -> É mostrado na tela como Nível de CO (PPM).
+- field2 -> É mostrado na tela como Temperatura (°C).
+- field3 -> É mostrado na tela como Umidade (%).
+- created_at -> O horário em que o dado foi registrado (convertido da hora mundial para o fuso local pelo JavaScript).
+
+A página pega a posição "0" (o dado mais recente de todos) e joga nos 3 Cards coloridos no topo. Em seguida, ela pega todos os 20 itens e cria as linhas da tabela de "Histórico" na parte de baixo.
+
+4. ATUALIZAÇÃO MANUAL (BOTÃO REFRESH)
+-------------------------------------
+- Arquivo: src/app/dashboard/RefreshButton.tsx
+
+* Como funciona:
+Em vez de você ter que apertar "F5" no navegador, existe um botão de atualizar no topo do painel. Ele usa a função "router.refresh()" do Next.js. O que ela faz é pedir gentilmente para o servidor: "Ei, rode a função que busca dados no ThingSpeak de novo e atualize a página sem piscar a tela toda". Assim, o painel se mantém atualizado com fluidez.
+
+5. DESIGN E ESTILOS (TAILWIND CSS)
+----------------------------------
+Toda a parte visual, o "Dark Mode" (fundo escuro), arredondamento de bordas, cores dos textos (text-cyan-400, text-red-400), e a responsividade (que faz a tabela se adaptar a celulares) são feitos usando "Tailwind CSS". O Tailwind nos permite colocar as classes visuais diretamente dentro do HTML do React (na propriedade className), eliminando a necessidade de dezenas de arquivos .css complexos.
+
+RESUMO:
+1. Você digita a senha.
+2. actions.ts valida e cria um cookie.
+3. middleware.ts deixa você entrar no /dashboard.
+4. dashboard/page.tsx vai no ThingSpeak de forma secreta e busca os dados.
+5. Os dados são organizados e as variáveis (PPM, Temp, Umi) preenchem a tela.
