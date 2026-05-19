@@ -34,9 +34,9 @@ export default function SobrePage() {
         <section className="bg-gray-900 border border-gray-800 rounded-2xl p-8 shadow-xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -mr-20 -mt-20"></div>
           
-          <h2 className="text-3xl font-bold text-white mb-6">Sobre o Projeto AirSens</h2>
+          <h2 className="text-3xl font-bold text-white mb-6">Sobre o Projeto Arsens</h2>
           <p className="text-gray-300 leading-relaxed text-lg">
-            O AirSens é uma iniciativa tecnológica desenvolvida por um grupo de universitários com o propósito de enfrentar um desafio invisível, mas extremamente perigoso: a poluição por gases tóxicos em ambientes internos e urbanos. Focado inicialmente na detecção de Monóxido de Carbono (CO) — um gás inodoro, insípido e altamente letal —, o projeto une Internet das Coisas (IoT), telemetria em tempo real e análise climática para salvar vidas e promover ambientes mais seguros.
+            O Arsens é uma iniciativa tecnológica desenvolvida por um grupo de universitários com o propósito de enfrentar um desafio invisível, mas extremamente perigoso: a poluição por gases tóxicos em ambientes internos e urbanos. Focado inicialmente na detecção de Monóxido de Carbono (CO) — um gás inodoro, insípido e altamente letal —, o projeto une Internet das Coisas (IoT), telemetria em tempo real e análise climática para salvar vidas e promover ambientes mais seguros.
           </p>
         </section>
 
@@ -46,7 +46,7 @@ export default function SobrePage() {
             <span className="text-yellow-500">💡</span> Nossa Missão
           </h3>
           <p className="text-gray-300 leading-relaxed">
-            Nossa missão é democratizar o acesso a sistemas inteligentes de monitoramento ambiental. Utilizando hardware de código aberto e sensores de alta precisão, o AirSens transforma dados brutos da atmosfera em informações claras, acessíveis e acionáveis para o usuário comum.
+            Nossa missão é democratizar o acesso a sistemas inteligentes de monitoramento ambiental. Utilizando hardware de código aberto e sensores de alta precisão, o Arsens transforma dados brutos da atmosfera em informações claras, acessíveis e acionáveis para o usuário comum.
           </p>
         </section>
 
@@ -92,7 +92,7 @@ export default function SobrePage() {
             <span className="text-purple-500">🎓</span> O Impacto Acadêmico e Social
           </h3>
           <p className="text-gray-300 leading-relaxed">
-            Mais do que um protótipo de engenharia, o AirSens representa a aplicação prática do conhecimento universitário em prol da sociedade. Acreditamos que a tecnologia e a prevenção são as melhores ferramentas para transformar a saúde pública e a segurança residencial.
+            Mais do que um protótipo de engenharia, o Arsens representa a aplicação prática do conhecimento universitário em prol da sociedade. Acreditamos que a tecnologia e a prevenção são as melhores ferramentas para transformar a saúde pública e a segurança residencial.
           </p>
         </section>
       </main>
