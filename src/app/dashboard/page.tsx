@@ -1,5 +1,6 @@
 import { logout } from "@/app/actions";
 import RefreshButton from "./RefreshButton";
+import Image from "next/image";
 
 interface ThingSpeakResponse {
   channel: {
@@ -68,9 +69,13 @@ export default async function DashboardPage() {
       <header className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-md sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(37,99,235,0.5)]">
-              IoT
-            </div>
+            <Image 
+              src="/logo.png.jpeg" 
+              alt="ARSENS Logo" 
+              width={48}
+              height={48}
+              className="object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]"
+            />
             <h1 className="text-xl font-semibold tracking-tight text-white">
               Monitoramento Ambiental
             </h1>

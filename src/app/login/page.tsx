@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { login } from "@/app/actions";
+import Image from "next/image";
 
 export default function LoginPage() {
   const [state, formAction, isPending] = useActionState(login, null);
@@ -10,8 +11,17 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-gray-950 text-gray-100 p-4">
       <div className="w-full max-w-md p-8 space-y-8 bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl">
         <div className="text-center">
-          <h1 className="text-3xl font-bold tracking-tight text-white">
-            Painel IoT
+          <div className="flex justify-center mb-2">
+            <Image 
+              src="/logo.png.jpeg" 
+              alt="ARSENS Logo" 
+              width={100}
+              height={100}
+              className="object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+            />
+          </div>
+          <h1 className="text-3xl font-bold tracking-tight text-white mt-4">
+            Acesso ao Sistema
           </h1>
           <p className="mt-2 text-sm text-gray-400">
             Acesso restrito. Insira suas credenciais.
