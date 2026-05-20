@@ -1,36 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Datasheet ESP 32
 
-## Getting Started
+<img width="1777" height="1039" alt="image" src="https://github.com/user-attachments/assets/071429a4-eeb3-4b48-a965-5e3f4ec15fe4" />
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Datasheet BME 280
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/07970d08-a55e-46ec-a201-80759344f9d5" />
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Datasheet MQ 7
 
-## Learn More
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/d7159ac9-5d8c-46f6-861f-a50858225ea7" /> 
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Datasheet TIP 120
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<img width="700" height="480" alt="image" src="https://github.com/user-attachments/assets/d914865e-1d49-49ec-88c2-137eb7655d59" />
